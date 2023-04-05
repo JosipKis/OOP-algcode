@@ -11,6 +11,7 @@ public class Zd2Main {
 			flag = robi.fill2Darr();
 		}
 		robi.print2DArr();
+		
 	}
 
 }

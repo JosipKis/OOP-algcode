@@ -10,6 +10,7 @@ public class Robot {
 	public Robot(String ime, int idx) {
 		this.name = ime;
 		this.id = idx;
+
 	}
 	public void walk() {
 		System.out.println("I roboti znaju hodati~");
@@ -31,4 +32,7 @@ public class Robot {
 		return faktorijel;
 		
 	}
+	
+
+	
 }
