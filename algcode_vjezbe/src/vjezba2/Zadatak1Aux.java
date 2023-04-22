@@ -61,4 +61,23 @@ public class Zadatak1Aux {
 			return lista;
 		}
 	}
+	
+	public static int[] ubacivanjeClanaNaZeljenoMjesto(int[] lista, int clan, int noviClan) {
+		int temp;
+		int[] boljaLista = new int[lista.length+1];
+		if (clan > lista.length) {
+			return lista;
+		}else {
+			for (int c = 0; c < boljaLista.length; c++) {
+				if (c == clan) {	
+					boljaLista[c] = noviClan;
+				}else if(c < clan){
+					boljaLista[c] = lista[c];
+				}else { 
+					boljaLista[c] = lista[c-1];
+				}
+			}
+	}
+		return boljaLista;
+	}
 }
