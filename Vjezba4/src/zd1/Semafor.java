@@ -43,6 +43,7 @@ public class Semafor {
         }else if (svjetlo.equals(zeleno)){
             System.out.println(ANSI_GREEN +"1 - Zeleno!"+ ANSI_RESET);
         }else {
+            System.out.println("Semafor ne poznaje ovu vrijednost :(");
         }
     }
 }
