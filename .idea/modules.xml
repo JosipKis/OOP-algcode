@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Labovi/Labovi.iml" filepath="$PROJECT_DIR$/Labovi/Labovi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOP-algcode.iml" filepath="$PROJECT_DIR$/OOP-algcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OopPredavanja/OopPredavanja.iml" filepath="$PROJECT_DIR$/OopPredavanja/OopPredavanja.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vjezba2/Vjezba2.iml" filepath="$PROJECT_DIR$/Vjezba2/Vjezba2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vjezba3/Vjezba3.iml" filepath="$PROJECT_DIR$/Vjezba3/Vjezba3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vjezba4/Vjezba4.iml" filepath="$PROJECT_DIR$/Vjezba4/Vjezba4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alg_code_12_4/alg_code_12_4.iml" filepath="$PROJECT_DIR$/alg_code_12_4/alg_code_12_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alg_code_predavanje_5_4/alg_code_predavanje_5_4.iml" filepath="$PROJECT_DIR$/alg_code_predavanje_5_4/alg_code_predavanje_5_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algcode_vjezbe/algcode_vjezbe.iml" filepath="$PROJECT_DIR$/algcode_vjezbe/algcode_vjezbe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/predavanje15_03/predavanje15_03.iml" filepath="$PROJECT_DIR$/predavanje15_03/predavanje15_03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/predavanje20_03/predavanje20_03.iml" filepath="$PROJECT_DIR$/predavanje20_03/predavanje20_03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/primjer/primjer.iml" filepath="$PROJECT_DIR$/primjer/primjer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sat/sat.iml" filepath="$PROJECT_DIR$/sat/sat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vjezba1 Josip Kiš oop/vjezba1 Josip Kiš oop.iml" filepath="$PROJECT_DIR$/vjezba1 Josip Kiš oop/vjezba1 Josip Kiš oop.iml" />
+    </modules>
+  </component>
+</project>
