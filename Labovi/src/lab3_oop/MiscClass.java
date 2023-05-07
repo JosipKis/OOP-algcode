@@ -1,10 +1,16 @@
 package lab3_oop;
 
+import java.util.Scanner;
+
 public class MiscClass {
     private static int dan = 0;
     private static int sati = 0;
     private static int minute = 0;
-    public static void minuteUVrijeme(int broj){
+
+    public static void minuteUVrijeme(){
+        Scanner unos = new Scanner(System.in);
+        System.out.println("Unesite broj minuta za konverziju: ");
+        int broj = unos.nextInt();
         for (int c = 0; c < broj; c++){
             minute++;
             if (minute == 60){

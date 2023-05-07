@@ -4,7 +4,7 @@ public class Main {
     //Josip Kiš
     public static void main(String[] args) {
 
-        MiscClass.minuteUVrijeme(1502);
+        MiscClass.minuteUVrijeme();
     }
 }
 
