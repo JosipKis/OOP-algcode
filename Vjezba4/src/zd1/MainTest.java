@@ -7,6 +7,6 @@ public class MainTest {
         Haker haker = new Haker(semafor);
         semafor.trenutnoSvjetlo(2);
         haker.updatePokusaj();
-        semafor.trenutnoSvjetlo(2);
+
     }
 }

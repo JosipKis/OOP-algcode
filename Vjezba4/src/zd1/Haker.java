@@ -7,18 +7,20 @@ public class Haker {
     Semafor semafor;
     int[] listaNovihStanja = new int[3];
     private  final int MINVAL = 0;
-    private  final  int MAXVAL = 10;
+    private  final  int MAXVAL = 19;
 
     public Haker(Semafor semafor1){
         this.semafor = semafor1;
     }
 
-    private void novoStanje(){
-        for (int c: listaNovihStanja){
+    private int[] novoStanje(){
+        for (int c = 0; c < 3; c++){
             listaNovihStanja[c] = ThreadLocalRandom.current().nextInt(MINVAL, MAXVAL);
         }
         System.out.println("Novi brojevi su generirani! "+ Arrays.toString(listaNovihStanja));
+        return listaNovihStanja;
     }
+
 
     public void updatePokusaj(){
         novoStanje();
@@ -28,5 +30,6 @@ public class Haker {
         for (int c: listaNovihStanja){
             System.out.println("Hakirano stanje semafora je: "+ c);
         }
+        semafor.trenutnoSvjetlo(listaNovihStanja[0]);
     }
 }

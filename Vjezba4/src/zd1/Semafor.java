@@ -1,13 +1,15 @@
 package zd1;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Semafor {
     private String crveno = "0";
     private String zuto = "2";
     private String zeleno = "1";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_YELLOW = "\u001B[33m";
+    private static final String ANSI_RESET = "\u001B[0m";
 
     public String getCrveno() {
         return crveno;
@@ -34,6 +36,7 @@ public class Semafor {
     }
 
     public void trenutnoSvjetlo(int broj){
+        broj = ThreadLocalRandom.current().nextInt(3);
         String svjetlo = String.valueOf(broj);
         System.out.println("Trenutno stanje semafora: ");
         if (svjetlo.equals(crveno)){
