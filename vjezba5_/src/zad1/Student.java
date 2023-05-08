@@ -1,4 +1,4 @@
-package vjezba5;
+package zad1;
 
 import java.text.DateFormat;
 import java.util.Date;
