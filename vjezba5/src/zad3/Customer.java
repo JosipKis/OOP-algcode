@@ -10,7 +10,7 @@ public class Customer {
 
     public Customer(String name){
         this.customerName = name;
-        this.id = cntID++
+        this.id = cntID++;
     }
 
     @Override

@@ -73,6 +73,9 @@ public class Package {
                 items.add(sneakers);
             }
         }
+        System.out.println("Finished putting contents in the package!");
+        calculateTotalPackageItems();
+        calculateTotalPackagePrice();
     }
 
     @Override
@@ -96,12 +99,14 @@ public class Package {
         for (Item item: items){
             packagePrice += item.calculatePrice();
         }
+        System.out.println("Price is calculated!");
     }
 
     public void calculateTotalPackageItems(){
         for (Item item: items){
             totalItems += item.getNumItems();
         }
+        System.out.println("Finished calculating total package items!");
     }
 
 
