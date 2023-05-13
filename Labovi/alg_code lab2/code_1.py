@@ -1,12 +1,12 @@
 from typing import List, Tuple
 
 def read_data_as_list(file_name: str) -> List[str]:
-    str_lista = []
     file = open(file_name, "r")
+    lista = []
     for i in file:
-        j = str(i).strip("\n")
-        str_lista.append(str(j))
-    return str_lista
+        ni = i.strip()
+        lista.append(ni)
+    return lista
     """
     Reads the data from the file and returns the list of strings
     Args:
@@ -22,16 +22,8 @@ def read_data_as_list(file_name: str) -> List[str]:
 
 
 def convert_to_numbers(slst: List[str]) -> List:
-    int_and_float_lista = []
-    for i in slst:
-        if int(float(i)) == 0:
-            slst.remove(i)
-    for i in slst:
-        if (float(i) / int(float(i))) == 1:
-            int_and_float_lista.append(int(i))
-        else:   
-            continue
-    return int_and_float_lista
+    int_float_list = [int(i) if i.lstrip("-").isdigit() else float(i) for i in slst]
+    return int_float_list
     
     """
     Converts the list of strings to the list of integers
@@ -49,16 +41,8 @@ def convert_to_numbers(slst: List[str]) -> List:
 
 
 def eliminate_duplicates(iflst: List) -> List:
-    no_dupes = []
-    print(iflst)
-    i = 0
-    for i in iflst:
-        if i not in no_dupes:
-            no_dupes.append(i)
-        else:
-            pass
-    print(no_dupes)
-    return no_dupes
+    lista_wo_dupes: set = set(iflst)
+    return list(lista_wo_dupes)
 
     """
     Eliminates the duplicates from the list
@@ -75,14 +59,17 @@ def eliminate_duplicates(iflst: List) -> List:
 
 
 def find_pos_neg_ints(filst:List) -> Tuple:
-    pos_lst = []
-    neg_lst = []
+    pos_list = []
+    neg_list = []
     for i in filst:
-        if int(i) < 0:
-            neg_lst.append(i)
-        else:
-            pos_lst.append(i)
-    return tuple(pos_lst), tuple(neg_lst)        
+        if type(i) == int:
+            if i < 0:
+                neg_list.append(i)
+            elif i > 0:
+                pos_list.append(i)
+            else:
+                pass
+    return tuple(pos_list), tuple(neg_list)
     
     
 
@@ -97,10 +84,5 @@ if __name__ == '__main__':
     # find positive and negative integers
     pos, neg = find_pos_neg_ints(ed)
     
-    #("Positive integers: ", pos)
-    #print("Negative integers: ", neg)
-
-    # console output na mom računalu je: Positive integers:  (97, 34, 67, 89, 100, 200, 45, 23, 345)
-    # Negative integers:  (-22, -11, -100)
-    #neznam sto je krivo, niti kako sortirati brojeve na ovaj način
-    print("Positive integers:  (97, 34, 67, 89, 100, 200, 45, 23, 345)\nNegative integers:  (-22, -11, -100)")
+    print("Positive integers: ", pos)
+    print("Negative integers: ", neg)
