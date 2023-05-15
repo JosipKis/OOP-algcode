@@ -1,0 +1,5 @@
+1. ovo je neka text datoteka s trivijalnim podatcima.
+
+3. Druga linija teksta.
+
+5. Za sada posljednja linija...
