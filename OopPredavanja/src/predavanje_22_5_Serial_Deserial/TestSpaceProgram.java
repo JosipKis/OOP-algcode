@@ -29,9 +29,17 @@ public class TestSpaceProgram {
         ships.add(starShip2);
         ships.add(starShip3);
 //        writeShips2File("spaceProg1.bin", ships);
-        SerDeserial.saveObjects2File("spaceProgram.bin", ships);
+        SerDeserial.saveElementsToFile("spaceProgram.bin", ships);
         List<StarShip> ships2 = SerDeserial.readObjectsFromFile("spaceProgram.bin");
         System.out.println(ships2);
+//        ships2.clear();
+//        ships2.add(new StarShip("PenisCopter"));
+//        ships2.add(new StarShip("Voyager"));
+//        SerDeserial.saveElementsToFile("spaceProgram.bin", ships2);
+//        List<StarShip> ships3 = SerDeserial.readObjectsFromFile("spaceProgram.bin");
+//        System.out.println(ships3);
+//        boolean status = SerDeserial.checkBinFile("spaceProgram.bin");
+//        System.out.println("Exists and not empty: "+ status);
     }
 
     private static void writeShips2File(String fileName, ArrayList<StarShip> ships){

@@ -13,8 +13,8 @@ public class SerDeserial {
      * @param <E> any class that implements Serializable
      * @see java.io.Serializable
      */
-    public static <E> void saveObjects2File(String fileName, List<E> elements){
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream((fileName)))){
+    public static <E> void saveObjects2File(String fileName, List<E> elements, boolean append){
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName, append))){
             for (E element: elements){
                 oos.writeObject(element);
             }
@@ -23,6 +23,43 @@ public class SerDeserial {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean checkBinFile(String fileName){
+        boolean status = false;
+        if (fileName.endsWith(".bin")){
+            File file = new File(fileName);
+            status = file.exists() && file.length() > 0;
+        }
+
+        return status;
+    }
+
+    public static <E> void saveElementsToFile(String fileName, List<E> elements){
+        if (checkBinFile(fileName)){
+            // appending into existing non-empty bin file
+            try (ObjectOutputStream oos = new AppendableObjectOutputStream(new FileOutputStream(fileName, true))){
+                for (E element: elements){
+                    oos.writeObject(element);
+                }
+                System.out.println("All ships are stored into the file!");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else{
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
+                for (E element: elements){
+                    oos.writeObject(element);
+                }
+                System.out.println("All ships are stored into the file!");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -46,5 +83,17 @@ public class SerDeserial {
         }
 
         return elementsFromFile;
+    }
+
+    static class AppendableObjectOutputStream extends ObjectOutputStream{
+
+        public AppendableObjectOutputStream(OutputStream out) throws IOException {
+            super(out);
+        }
+
+        @Override
+        protected void writeStreamHeader() throws IOException {
+            reset();
+        }
     }
 }
