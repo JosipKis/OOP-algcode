@@ -7,4 +7,4 @@ def draw_triangle(x, y, a, ax):
     plt.plot([x+a, x+a/2], [y, y+v], 'k')
 
 fig, ax = plt.subplot()
-draw_triangle(0, 0, 100, ak)
+draw_triangle(0, 0, 100, ax)
