@@ -1,17 +1,7 @@
 import random
 from typing import List, Tuple, Callable
 from timeit import default_timer as timer
-
-
-def execution_time(funk: Callable):
-    def wrapper(*args, **kwargs):
-        start = timer()
-        result = funk(*args, **kwargs)
-        end = timer()
-        elst = end - start
-        print(f"{funk.__name__} - Elapsed time: {elst}")
-        return elst
-    return wrapper
+from additional_module import execution_time
 
 
 @execution_time
@@ -44,6 +34,27 @@ def bubble_sort(ar: List, sort_type: str = "asc"):
         if action == 0:
             print(f"Sorted array: {ar}")
             break
+
+
+@execution_time
+def binary_search(ar: List[int], item: int) -> bool:
+    sarr = sorted(ar)
+    in_arr = False
+    mp = len(ar) // 2
+    left = 0
+    right = len(ar) - 1
+    while left <= right:
+        if item == sarr[mp]:
+            in_arr = True
+            print(f"{item} is in arr at ind position: {mp}")
+            return in_arr
+        elif item > sarr[mp]:
+            left = mp + 1
+        elif item < sarr[mp]:
+            right = mp - 1
+        mp = (left + right) // 2
+    print(f"{item} is not in array...")
+    return in_arr
 
 
 def generate_rnd_arr(lng: int = 5, num: int = 100) -> List:
