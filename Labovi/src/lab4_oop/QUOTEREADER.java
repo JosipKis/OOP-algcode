@@ -1,54 +1,45 @@
 package lab4_oop;
 // all imports
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class QUOTEREADER {
 
     // static field - key:value data structure
-    public static Map<String, String> quoteMap(){
-        Map<String, String> hashMap = new HashMap<>();
-        return hashMap;
-    }
+    public static TreeMap<String, String> treeMap = new TreeMap<>();
+
 
     // reads data from file and fills appropriate data structure
     public static void readDataFromFile(String filePath)  {
         File file = new File(filePath);
-        Map<String, String> fillHasMap = quoteMap();
-        try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()){
-                String line = scanner.nextLine();
-                System.out.println(line);
-                int dvotockaIndex = line.indexOf(":");
-                if (dvotockaIndex >= 0){
-                    String key = line.substring(0, dvotockaIndex + 1);
-                    String value = line.substring(dvotockaIndex + 1);
-                    fillHasMap.put(key, value);
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(":", 2);
+                if (parts.length == 2) {
+                    String key = parts[0].trim();
+                    String value = parts[1].trim();
+                    treeMap.put(key, value);
                 }
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File was not found!");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     // getters for static field
-    public static Map<String, String> getQuoteMap(){
-
-        return quoteMap();
+    public static TreeMap<String, String> getTreeMap() {
+        return treeMap;
     }
 
-    // list all quotes 
+    // list all quotes
     public static void listAllQuotes(){
         readDataFromFile("Labovi/src/lab4_oop/quotes.txt");
-        for (Map.Entry<String, String> c: quoteMap().entrySet()){
-            String key = c.getKey();
-            String value = c.getValue();
-            System.out.println("Key: "+ key +" value: "+ value);
+        for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println(key + ":" + value);
         }
     }
 }
