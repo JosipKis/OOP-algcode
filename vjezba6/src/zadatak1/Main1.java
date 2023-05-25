@@ -30,8 +30,12 @@ public class Main1 {
 
     public static void changeElement(int indx, LinkedList<String> llist, String newElement){
         try{
+            // dodana nadogradnja metode koja pamti zamjnjeni element!
+            String temp = llist.get(indx);
             llist.set(indx, newElement);
             System.out.println(llist);
+            System.out.println("----------------");
+            System.out.println("The replaced element: "+ temp);
         }catch (IndexOutOfBoundsException e){
             System.out.println("Entered index is out of bounds!");
         }
