@@ -30,7 +30,7 @@ public class Main2 {
         printAnyMap(lhashMap);
     }
 
-    public static <E> void printAnyMap(Map<?, ?> map){
+    public static  void printAnyMap(Map<?, ?> map){
         for (Map.Entry<?, ?> entry : map.entrySet()) {
             Object key = entry.getKey();
             Object name = entry.getValue();
