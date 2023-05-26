@@ -1,0 +1,5 @@
+Ovo je
+neki
+String
+za peti
+zadatak!
