@@ -23,6 +23,22 @@ public class Package {
         }
     }
 
+    public Customer getCustomer1() {
+        return customer1;
+    }
+
+    public ArrayList<Integer> getItemQuantities() {
+        return itemQuantities;
+    }
+
+    public long getPackageID() {
+        return packageID;
+    }
+
+    public ArrayList<Item> getPackageItems() {
+        return packageItems;
+    }
+
     @Override
     public String toString() {
         return "Package{" +
@@ -32,4 +48,5 @@ public class Package {
                 ", packageItems=" + packageItems +
                 '}';
     }
+
 }

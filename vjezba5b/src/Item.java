@@ -16,9 +16,7 @@ public abstract class Item {
         setQuantity(getQuantity() - num);
     }
 
-    protected void changeItemDescription(){
-        setItemDescription("Item description has changed!");
-    }
+    protected abstract void changeItemDescription();
 
     public int getQuantity() {
         return quantity;
