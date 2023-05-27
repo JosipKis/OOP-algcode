@@ -2,7 +2,6 @@ package zadatak5;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.ListIterator;
 
 public class Main5 {
 
@@ -29,6 +28,9 @@ public class Main5 {
         System.out.println("Printing the LinkedList after the while loop...");
         printList(vehicles);
         System.out.println("\n");
+        ListProcessing.insertVeh(vehicles);
+        System.out.println("\n");
+        printList(vehicles);
 
     }
 

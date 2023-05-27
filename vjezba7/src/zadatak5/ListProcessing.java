@@ -1,12 +1,22 @@
 package zadatak5;
 
+import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class ListProcessing implements ListIterator {
 
-    public static void insertVeh(String vehicle){
+    public static void insertVeh(LinkedList<String> linkedList){
+        ListIterator<String> iterator = linkedList.listIterator();
+        while (iterator.hasNext()) {
+            String el = iterator.next();
+            System.out.println(el);
+            if ("electronic bike".equals(el)) {
+                iterator.add("New Vehicle");
+            }
+        }
 
     }
+
 
     @Override
     public boolean hasNext() {
