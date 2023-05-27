@@ -5,7 +5,6 @@ public class Payment {
     private Scanner scanner = new Scanner(System.in);
 
     Payment(){
-
     }
 
     private void possiblePaymentMethods(){

@@ -8,4 +8,19 @@ public class TShirt extends Item{
     protected void changeItemDescription() {
         System.out.println("Addidas T-Shirt");
     }
+
+    @Override
+    public String toString() {
+        return "TShirt{" +
+                "quantity=" + quantity +
+                ", itemInitPrice=" + itemInitPrice +
+                ", itemDescription='" + itemDescription + '\'' +
+                ", itemID=" + itemID +
+                '}';
+    }
+
+    public float getItemPrice(){
+        float TShirtPrice = getItemPrice()*1.1f;
+        return TShirtPrice;
+    }
 }
