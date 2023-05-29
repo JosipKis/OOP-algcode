@@ -43,8 +43,13 @@ public class MainFrame extends JFrame {
         bottomPanel.setBottomPanelListener(new BottomPanelListener() {
             @Override
             public void bottomPanelEventOccurred(BottomPanelEvent bpe) {
-                String msg = bpe.getButtonMsg();
-                viewPanel.setTextOnTextArea(msg);
+                String name = bpe.getName();
+                String surname = bpe.getSurname();
+                String progIn = bpe.getProgrammingIn();
+                viewPanel.setTextOnTextArea(name);
+                viewPanel.setTextOnTextArea(surname);
+                viewPanel.setTextOnTextArea(progIn);
+                viewPanel.setTextOnTextArea("------------------------------------------------------");
             }
         });
         bottomPanel.activateComps();

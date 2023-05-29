@@ -29,8 +29,11 @@ public class BottomPanel extends JPanel {
         nameField = new JTextField(10);
         surnameField = new JTextField(10);
         radioPython = new JRadioButton("Python");
+        radioPython.setActionCommand("Python");
         radioJava = new JRadioButton("Java");
+        radioJava.setActionCommand("Java");
         radioSwing = new JRadioButton("Swing");
+        radioSwing.setActionCommand("Swing");
         programmingGroup = new ButtonGroup();
         programmingGroup.add(radioPython);
         programmingGroup.add(radioJava);
@@ -84,10 +87,11 @@ public class BottomPanel extends JPanel {
             confirmButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String msg = "Button clicked!!!";
-                    BottomPanelEvent bpe = new BottomPanelEvent(this, msg);
+                    String name = nameField.getText();
+                    String surname = surnameField.getText();
+                    String programming = programmingGroup.getSelection().getActionCommand();
+                    BottomPanelEvent bpe = new BottomPanelEvent(this, name, surname, programming);
                     bottomPanelListener.bottomPanelEventOccurred(bpe);
-                    System.out.println(msg);
                 }
             });
         }
