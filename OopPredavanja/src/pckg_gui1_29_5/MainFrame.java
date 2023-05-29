@@ -1,13 +1,16 @@
 package pckg_gui1_29_5;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.io.*;
 
 public class MainFrame extends JFrame {
 
     private ViewPanel viewPanel;
     private BottomPanel bottomPanel;
     private ToolBarPanel toolBarPanel;
+    private JFileChooser fileChooser;
 
     public MainFrame(){
         super("Simple GUI app");
@@ -25,6 +28,8 @@ public class MainFrame extends JFrame {
         viewPanel = new ViewPanel();
         bottomPanel = new BottomPanel();
         toolBarPanel = new ToolBarPanel();
+        fileChooser = new JFileChooser();
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("txt files", "txt"));
     }
 
     private void layoutComps(){
@@ -43,5 +48,31 @@ public class MainFrame extends JFrame {
             }
         });
         bottomPanel.activateComps();
+
+        toolBarPanel.setToolBarListener(new ToolBarListener() {
+            @Override
+            public void clearButtonEventOccurred(ToolBarEvent tbe) {
+                viewPanel.clearAll();
+            }
+
+            @Override
+            public void readFromFileButtonEventOccurred(ToolBarEvent tbe) {
+                int value = fileChooser.showOpenDialog(MainFrame.this);
+                if (value == JFileChooser.APPROVE_OPTION){
+                    File file = fileChooser.getSelectedFile();
+                    try (BufferedReader br = new BufferedReader(new FileReader(file))){
+                        String line;
+                        while ((line = br.readLine()) != null){
+                            viewPanel.setTextOnTextArea(line +"\n");
+                        }
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
+        toolBarPanel.activateToolBar();
     }
 }
