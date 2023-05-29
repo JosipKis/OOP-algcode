@@ -92,8 +92,16 @@ public class BottomPanel extends JPanel {
                     String programming = programmingGroup.getSelection().getActionCommand();
                     BottomPanelEvent bpe = new BottomPanelEvent(this, name, surname, programming);
                     bottomPanelListener.bottomPanelEventOccurred(bpe);
+                    resetForm();
                 }
             });
         }
+    }
+
+    private void resetForm(){
+        nameField.setText(null);
+        surnameField.setText(null);
+        nameField.requestFocus();
+        radioPython.setSelected(true);
     }
 }
