@@ -7,7 +7,13 @@ import java.awt.event.ActionListener;
 
 public class BottomPanel extends JPanel {
 
-    private JButton clickButton;
+    private JButton confirmButton;
+    private JTextField nameField;
+    private JTextField surnameField;
+    private JRadioButton radioPython;
+    private JRadioButton radioJava;
+    private JRadioButton radioSwing;
+    private ButtonGroup programmingGroup;
     private BottomPanelListener bottomPanelListener;
 
     public BottomPanel(){
@@ -16,12 +22,55 @@ public class BottomPanel extends JPanel {
     }
 
     private void initComps(){
-        clickButton = new JButton("Click me");
+        Dimension dims = this.getPreferredSize();
+        dims.height = 170;
+        this.setPreferredSize(dims);
+        confirmButton = new JButton("Click me");
+        nameField = new JTextField(10);
+        surnameField = new JTextField(10);
+        radioPython = new JRadioButton("Python");
+        radioJava = new JRadioButton("Java");
+        radioSwing = new JRadioButton("Swing");
+        programmingGroup = new ButtonGroup();
+        programmingGroup.add(radioPython);
+        programmingGroup.add(radioJava);
+        programmingGroup.add(radioSwing);
     }
 
     private void layoutComps(){
-        setLayout(new BorderLayout());
-        add(clickButton, BorderLayout.CENTER);
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridy = 0;
+        gbc.gridx = 0;
+        add(new JLabel("Name: "), gbc);
+        gbc.gridx++;
+        add(nameField, gbc);
+
+        gbc.gridx--;
+        gbc.gridy++;
+        add(new JLabel("Surname: "), gbc);
+        gbc.gridx++;
+        add(surnameField, gbc);
+
+        gbc.gridy--;
+        gbc.gridx++;
+        add(Box.createHorizontalStrut(15));
+        gbc.gridx++;
+
+        add(new JLabel("Programming in: "), gbc);
+        gbc.gridx++;
+        gbc.gridy++;
+        add(radioPython, gbc);
+
+        gbc.gridy++;
+        add(radioJava, gbc);
+
+        gbc.gridy++;
+        add(radioSwing, gbc);
+
+        gbc.gridx++;
+        gbc.gridy++;
+        add(confirmButton, gbc);
     }
 
     public void setBottomPanelListener(BottomPanelListener bpl){
@@ -32,7 +81,7 @@ public class BottomPanel extends JPanel {
     public void activateComps(){
         System.out.println("Bottom panel listener: "+ (this.bottomPanelListener != null));
         if (bottomPanelListener != null){
-            clickButton.addActionListener(new ActionListener() {
+            confirmButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String msg = "Button clicked!!!";
