@@ -1,49 +1,35 @@
 public abstract class Item {
 
     protected int quantity;
-    protected float itemInitPrice;
+    protected float itemPrice;
     protected String itemDescription;
     protected int itemID;
+    protected static int cntID = 1;
+    protected float totalPrice;
 
-    public Item(int quantity, float itemInitPrice, String itemDescription){
+    public Item(int quantity, String itemDescription) {
         this.quantity = quantity;
-        this.itemInitPrice = itemInitPrice;
-        this.itemDescription = itemDescription;
-        itemID = 1000;
-    }
-
-    protected void decreaseItemQuantity(int num){
-        setQuantity(getQuantity() - num);
-    }
-
-    protected abstract void changeItemDescription();
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public float getItemInitPrice() {
-        return itemInitPrice;
-    }
-
-    public void setItemInitPrice(float itemInitPrice) {
-        this.itemInitPrice = itemInitPrice;
-    }
-
-    public String getItemDescription() {
-        return itemDescription;
-    }
-
-    public void setItemDescription(String itemDescription) {
         this.itemDescription = itemDescription;
     }
 
-    public int getItemID() {
-        return itemID;
+    public float getTotalPrice() {
+        return totalPrice;
     }
 
+    public void calculateTotalPrice(){
+        totalPrice = quantity*itemPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "quantity=" + quantity +
+                ", itemPrice=" + itemPrice +
+                ", itemDescription='" + itemDescription + '\'' +
+                ", itemID=" + itemID +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
 }
+
+

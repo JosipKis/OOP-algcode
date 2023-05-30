@@ -5,6 +5,7 @@ public class Payment {
     private Scanner scanner = new Scanner(System.in);
 
     Payment(){
+        payPackage();
     }
 
     private void possiblePaymentMethods(){
@@ -14,8 +15,9 @@ public class Payment {
         System.out.println("PP - PayPal Service");
     }
 
-    void payPackage(){
+    private String payPackage(){
         boolean paymentStatus = true;
+        String paymentMethod = "";
         possiblePaymentMethods();
         System.out.println("Please enter your payment option: ");
         while (paymentStatus){
@@ -33,5 +35,6 @@ public class Payment {
                 System.out.println("Unsupported payment option - try again...");
             }
         }
+        return paymentMethod;
     }
 }

@@ -2,51 +2,52 @@ import java.util.ArrayList;
 
 public class Package {
 
-    private Customer customer1;
-    private ArrayList<Integer> itemQuantities;
-    private long packageID;
-    private ArrayList<Item> packageItems;
+    private float totalOrderCost;
+    private String orderInvoice;
+    private int orderID = 10;
+    private ArrayList<Item> packageItems = new ArrayList<>();
 
-    public Package(Customer customer){
-        this.customer1 = customer;
+    public Package(String orderDescription) {
+        this.orderInvoice = orderDescription;
+        this.orderID += 1;
     }
 
-    public void putItem(Item item, int numItems){
-        for (int c = 0; c < numItems; c++){
-            packageItems.add(item);
+    public void showContentInOrder() {
+        System.out.println("\n----------------------------------------------");
+        for (Item item : packageItems) {
+            System.out.println(item);
+            System.out.println();
         }
+        System.out.printf("Ukupna cijena narudžbe je: %.1f $\n", totalOrderCost);
+        System.out.println("----------------------------------------------\n");
     }
 
-    public void listItemsInPackage(){
-        for (Item items: packageItems){
-            System.out.println(items);
-        }
+    public void addJacketsToOrder(int numOfJackets) {
+        Jacket jacket = new Jacket(numOfJackets, "Biker jacket");
+        packageItems.add(jacket);
+        jacket.calculateTotalPrice();
+        totalOrderCost += jacket.getTotalPrice();
     }
 
-    public Customer getCustomer1() {
-        return customer1;
+    public void addSneakersToOrder(int numOfSocks) {
+        Sneakers socks = new Sneakers(numOfSocks, "Addidas");
+        packageItems.add(socks);
+        socks.calculateTotalPrice();
+        totalOrderCost += socks.getTotalPrice();
     }
 
-    public ArrayList<Integer> getItemQuantities() {
-        return itemQuantities;
-    }
-
-    public long getPackageID() {
-        return packageID;
-    }
-
-    public ArrayList<Item> getPackageItems() {
-        return packageItems;
+    public void addTShirtsToOrder(int numOfSP) {
+        TShirt sweatPants = new TShirt(numOfSP, "Livaja Hajduk jersey");
+        packageItems.add(sweatPants);
+        sweatPants.calculateTotalPrice();
+        totalOrderCost += sweatPants.getTotalPrice();
     }
 
     @Override
     public String toString() {
-        return "Package{" +
-                "customer=" + customer1 +
-                ", itemQuantities=" + itemQuantities +
-                ", packageID=" + packageID +
-                ", packageItems=" + packageItems +
-                '}';
+        System.out.println("Order desc: " + orderInvoice);
+        showContentInOrder();
+        return null;
     }
 
 }

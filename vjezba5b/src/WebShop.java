@@ -1,34 +1,24 @@
-import java.util.ArrayList;
-
 public class WebShop {
 
-    public WebShop(String webShopName){
+    private String webLocation;
+    private Customer customer;
+    private Package aPackage;
+    private Payment payment;
+
+    public WebShop(String webLocation, Customer customer, Package aPackage, Payment payment) {
+        this.webLocation = webLocation;
+        this.customer = customer;
+        this.aPackage = aPackage;
+        this.payment = payment;
     }
 
-    public void updateOfferQuantity(Item item, int initQuantity){
-        int someNum = item.getQuantity()-initQuantity;
-        item.setQuantity(item.getQuantity()-someNum);
-    }
-
-    public void listAllItems(){
-
-    }
-
-    public void reduceNumberOfItemsAfterSuccessfulPurchase(Item item, int num){
-        item.setQuantity(item.getQuantity()-num);
-    }
-
-    public void finishAndPay(){
-        System.out.println("============ Package ============");
-        listAllItems();
-    }
-
-    public void addItemInWebShop(Item item){
-        ArrayList<Item> itemsList = new ArrayList<>();
-        itemsList.add(item);
-    }
-
-    public void putItemsInPackage(Customer customer){
-
+    public void orderContentFromShop() {
+        if (payment.equals(customer.getCustomerPayment())) {
+            System.out.println("Succefully ordered!");
+            System.out.println("Package is flying from " + webLocation + " to " + customer.getLocation());
+            aPackage.showContentInOrder();
+        } else {
+            System.out.println("Payment failed, card required is: " + payment);
+        }
     }
 }

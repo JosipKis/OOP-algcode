@@ -1,29 +1,27 @@
 public class Customer {
 
-    private String adress;
-    private int id;
+    private Payment payment;
     private String name;
+    private String location;
 
-    public Customer(String adress){
+    public Customer(Payment Payment, String name, String location) {
+        this.payment = Payment;
         this.name = name;
-        this.adress = adress;
-        id = 20;
+        this.location = location;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getLocation() {
+        return location;
     }
 
-    public int getId() {
-        return id;
+    public Payment getCustomerPayment() {
+        return payment;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "adress='" + adress + '\'' +
-                ", id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name +
                 '}';
     }
 }

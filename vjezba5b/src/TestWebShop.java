@@ -1,12 +1,14 @@
 public class TestWebShop {
 
     public static void main(String[] args) {
-        WebShop ws = new WebShop("WEB_BEST_OFF");
-        ws.addItemInWebShop(new Jacket(550, 35, "JACKET-MODEL_AS"));
-        ws.addItemInWebShop(new TShirt(190, 100, "TS-CCD100"));
-        ws.addItemInWebShop(new Sneakers(450, 15, "SNKRS-XW"));
-        Customer customer = new Customer("CITY - Street FST 44");
-        ws.putItemsInPackage(customer);
-        ws.finishAndPay();
+        Package package1 = new Package("Paket");
+        package1.addTShirtsToOrder(2);
+        package1.addJacketsToOrder(1);
+        package1.addSneakersToOrder(3);
+        Payment payment = new Payment();
+        Customer customer = new Customer(payment, "Josip", "Sikovo, Darth Vader street");
+        WebShop jeftinijeHr = new WebShop("Zagreb?", customer, package1, payment);
+        jeftinijeHr.orderContentFromShop();
+
     }
 }
