@@ -22,7 +22,7 @@ def position(arl: List, left: int, right: int):
             slider += 1
             pointer += 1
     arl[pointer], arl[pivot] = arl[pivot], arl[pointer]
-    print(f"After one pass trough a list:\n {arl}")
+    print(f"After one pass trough a list:\n {arl}")  
     input("Enter to continue...")
     return pointer
 
