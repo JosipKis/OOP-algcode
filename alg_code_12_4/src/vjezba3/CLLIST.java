@@ -146,7 +146,21 @@ public class CLLIST<E> implements LLST<E> {
 
     @Override
     public void insert(int index, E e) {
-
+        if (index < 0 || index > size) {
+            System.out.println("Index out of bounds!");
+        } else if (index == 0) {
+            addFirst(e);
+        } else if (index == size) {
+            addLast(e);
+        } else {
+            Node<E> current = tail;
+            for (int i = 0; i < index - 1; i++) {
+                current = current.getNext();
+            }
+            Node<E> newNode = new Node<>(e, current.getNext());
+            current.setNext(newNode);
+            size++;
+        }
     }
 
     @Override
