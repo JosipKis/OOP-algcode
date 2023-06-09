@@ -1,5 +1,4 @@
 def inverting(lst, n, k):
-    inverted_lst = []
     if n >= k:
         return lst
     else:
