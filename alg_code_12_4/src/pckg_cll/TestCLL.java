@@ -13,6 +13,8 @@ public class TestCLL {
 		clli.addLast(250);
 		System.out.println("contains -2525: "+ clli.containsElement(-2525));
 		System.out.println("contains 250: "+ clli.containsElement(250));
+		clli.insertAtPosition(2, 4);
+		System.out.println(clli);
 	}
 
 }

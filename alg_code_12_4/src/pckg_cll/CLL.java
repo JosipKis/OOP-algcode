@@ -64,8 +64,23 @@ public class CLL<E> implements SLL<E> {
 	}
 	@Override
 	public E removeLast() {
-		// TODO Auto-generated method stub
-		return null;
+		E element = null;
+ 		if (isEmpty()) {
+			System.out.println("List is empty!");
+		}else {
+			Node<E> prev = tail;
+			for (int k = 0; k < size - 1; k++) {
+				prev = prev.getNext();
+			}
+			Node<E> last = tail;
+			tail = prev;
+			tail.setNext(last.getNext());
+			last.setNext(null);
+			element = last.getElement();
+			System.out.println("Removing the last element!");
+			size--;
+		}
+		return element;
 	}
 	@Override
 	public boolean containsElement(E element) {
@@ -90,7 +105,27 @@ public class CLL<E> implements SLL<E> {
 	}
 	@Override
 	public void insertAtPosition(E element, int position) {
-		// TODO Auto-generated method stub
+		if (isEmpty()) {
+			System.out.println("List is empty - nothing to insert!");
+		}else {
+			if (position < 0 || position > size) {
+				System.out.println("Invalid position!");
+			}else {
+				if (position == 0) {
+					addFirst(element);
+				}else if (position == size) {
+					addLast(element);
+				}else {
+					Node<E> prev = tail;
+					for (int k = 0; k < position - 1; k++) {
+						prev = prev.getNext();
+					}
+					Node<E> node1 = new Node<>(element, prev.getNext());
+					prev.setNext(node1);
+					size++;
+				}
+			}
+		}
 		
 	}
 	@Override
