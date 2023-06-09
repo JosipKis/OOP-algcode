@@ -10,7 +10,7 @@ public class Main4JavaSolution {
         System.out.println("Sum of first " + n + " elements is: " + sumOfElements(arr, n));
     }
 
-    private static int[] generateArr(int min, int max, int numEl){
+    public static int[] generateArr(int min, int max, int numEl){
         int[] arr = new int[numEl];
         for (int c = 0; c < numEl; c++){
             arr[c] = ThreadLocalRandom.current().nextInt(min, max + 1);
