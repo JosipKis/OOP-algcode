@@ -1,42 +1,49 @@
 package vjezba4.zad3;
 
+import java.util.List;
+
 public class Main3JavaSolution {
 
-/*
-U Javi ipak drukcije rješenje, provjere za 100 i 10000 su otrpilike jednake, ali
-provjera za 1000000 je bila više od 10 puta brža rekurzijom 8[.
- */
-
+    /*
+         za testiranje rezulatat u Javi, vrijeme je gotovo isto u provjeri za 100 ponavljanja,
+         ali već na 10000 ponavljanja vrijeme rekurzije je dvostruko duže od normalnog.
+         U testiranju za 1000000 ponavljanja za oko 1.5 puta sporije, ali ipak znatno brže od onog
+         provjerenog u Pythonu.
+     */
 
     public static void main(String[] args) {
-        long timeStart = System.currentTimeMillis();
-        recursionPotention(2, 1000000);
-        long timeEnd = System.currentTimeMillis();
-        System.out.println("Recursion time: "+ (timeEnd - timeStart));
-        System.out.println("--------------------------------------------");
-        timeStart = System.currentTimeMillis();
-        normalPotention(2, 1000000);
-        timeEnd = System.currentTimeMillis();
-        System.out.println("Normal time: "+ (timeEnd - timeStart));
+        timer(1000000);
     }
 
-    public static long recursionPotention(int x, int n) {
-        if (n == 0){
-            return 1;
-        }else if (n % 2 == 0){
-            long num = (long) Math.pow(x, n);
-            return (long) Math.sqrt(num);
-        }else {
-            long num = (long) Math.pow(x, n);
-            return (long) ((long) x * Math.sqrt(num));
+    public static long recursionPotention(int x, List<Integer> n) {
+        if (n.isEmpty()) {
+            return 0;
+        } else {
+            long res = (long) Math.pow(x, n.get(0));
+            return res + recursionPotention(x, n.subList(1, n.size()));
+
         }
     }
 
-    public static long normalPotention(int x, int n) {
-        long potention = 0;
-        for (int c = 0; c < n; c++){
-            potention = (long) Math.pow(x, c);
+    public static void normalPotention(int x, List<Integer> n) {
+        for (int i = 0; i < n.size(); i++) {
+            long pp = (long) Math.pow(x, n.get(i));
         }
-        return potention;
+    }
+
+    private static void timer(int numOfRepeats){
+        long startTime = System.currentTimeMillis();
+        for (int c = 0; c < numOfRepeats; c++) {
+            recursionPotention(2, List.of(2, 5, 7, 11, 15, 25, 30, 50, 63));
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Recursion time: " + (endTime - startTime) + " ms");
+        System.out.println("--------------------------------------------------");
+        startTime = System.currentTimeMillis();
+        for (int c = 0; c < numOfRepeats; c++) {
+            normalPotention(2, List.of(2, 5, 7, 11, 15, 25, 30, 50, 63));
+        }
+        endTime = System.currentTimeMillis();
+        System.out.println("Normal time: " + (endTime - startTime) + " ms");
     }
 }
