@@ -1,0 +1,3 @@
+Moguće je koristi TreeSet za sortiranje kolekcija jer on pomoću svojih ugrađenih metoda sortira elemente kolekcije po nekom kriteriju.
+U slučaju Stringova po abecednom, za Integere sortira po veličini itd.
+Također ne dopušta duplikate u kolekciji.
