@@ -32,3 +32,4 @@ if __name__ == '__main__':
     normal_potentions(2, 1000000)
     end_timer = timer()
     print("Normal time: ", end_timer - star_timer)
+
