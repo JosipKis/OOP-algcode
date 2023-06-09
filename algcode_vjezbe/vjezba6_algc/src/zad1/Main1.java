@@ -1,5 +1,6 @@
 package zad1;
 
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main1 {
@@ -8,11 +9,22 @@ public class Main1 {
         int c = 0;
         long startTimer = System.currentTimeMillis();
         while (c < 1000){
-            generateIntArray(1000, -500, 500);
+            int[] arr = generateIntArray(1000, 1, 100);
+            binarySearch(arr, 50);
             c++;
         }
         long endTimer = System.currentTimeMillis();
         System.out.println("Time to generate 1000 arrays of size 1000: " + (endTimer - startTimer) + " ms");
+        startTimer = System.currentTimeMillis();
+        c = 0;
+        while (c < 1000){
+            int[] arr = generateIntArray(1000, -500, 500);
+            Arrays.binarySearch(arr, 50);
+            c++;
+        }
+        endTimer = System.currentTimeMillis();
+        System.out.println("Time it took for existting method: " + (endTimer - startTimer) + " ms");
+
     }
 
     private static boolean binarySearch(int[] arr, int key) {
