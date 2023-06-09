@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List
 
 
 def merge_sort(arl: List, sort_type: str):
@@ -35,7 +35,6 @@ def merge(left: List, right: List, sort_type: str):
     merged.extend(left[lip:])
     merged.extend(right[rip:])
     print(f"Merged in this step:\n{merged}")
-    # input("Enter to continue...")
     return merged
 
 
