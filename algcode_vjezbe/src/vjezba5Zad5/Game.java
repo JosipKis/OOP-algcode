@@ -7,7 +7,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Game {
 
     public static CircularlyQueue<Integer> genRandPlacement() {
-
         ArrayList<Integer> arl = new ArrayList<>();
         CircularlyQueue<Integer> wheel = new CircularlyQueue<>();
         int indx;
@@ -46,15 +45,14 @@ public class Game {
     }
 
     public static void results(HashMap<Integer, ArrayList<Integer>> players) {
-
         for (Integer key : players.keySet()) {
             int cnt = 0;
             ArrayList<Integer> player = players.get(key);
             System.out.println("<<<<<<<<<<<<<<<<<<<< Individual results >>>>>>>>>>>>>>>>>>>>");
-            System.out.println("Player -> " + key + ":");
+            System.out.println("Player -> "+ key +":");
             System.out.println(player);
-            for (int k = 0; k < player.size(); k++) {
-                if(player.get(k)%2 != 0) {
+            for (int c = 0; c < player.size(); c++) {
+                if(player.get(c)%2 != 0) {
                     cnt++;
                 }
             }
