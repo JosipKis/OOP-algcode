@@ -20,8 +20,21 @@ def find_max_in_arr(arr: List):
     print("Maximum number in the list is: ", max)
 
 
+def sort_array_in_descening_order(arr: List):
+    for c in range(len(arr)):
+        for i in range(len(arr)):
+            if arr[c] > arr[i]:
+                temp = arr[c]
+                arr[c] = arr[i]
+                arr[i] = temp
+    return arr
+
+
 if __name__ == '__main__':
     print("This list is randomly generated:")
     lst = generate_rnd_arr(10)
     print(lst)
     find_max_in_arr(lst)
+    print("-" * 50)
+    print("The list sorted in descending order:")
+    print(sort_array_in_descening_order(lst))
