@@ -1,0 +1,6 @@
+
+
+3 - Ukoliko čitamo datoteku koja ne postoji, dobit ćemo iznimku.
+4 - Ovdje je rijec o FileNotFoundException-u
+5 - Dodao sam catch blok koji hvata iznimku i ispisuje poruku.
+6 - Zapisivanje u neki Read-only file je nemoguće, pa će se baciti iznimka.
