@@ -1,0 +1,4 @@
+1 - Ponuđeno riješenje nije dobro jer korisnik može unijeti vrijednost koja nije integer
+2 - U ovom zadatku radi se o InputMismatchException-u
+3 - riješio sam ovaj problem koristeći try/catch blokove
+4 -
