@@ -47,7 +47,6 @@ public class GunSlinger implements Serializable {
                 wonDuels += 1;
             }
         }
-        System.out.println("Out of the "+ totalDuels +" duels, the gunslinger won "+ wonDuels);
         return wonDuels;
     }
 
@@ -69,6 +68,26 @@ public class GunSlinger implements Serializable {
 
     public boolean isTwoGuns() {
         return twoGuns;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public void setDuels(int duels) {
+        this.duels = duels;
+    }
+
+    public void setStrongHand(String strongHand) {
+        this.strongHand = strongHand;
+    }
+
+    public void setTwoGuns(boolean twoGuns) {
+        this.twoGuns = twoGuns;
     }
 
     @Override
