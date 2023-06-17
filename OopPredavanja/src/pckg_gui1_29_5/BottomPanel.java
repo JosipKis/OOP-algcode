@@ -91,6 +91,7 @@ public class BottomPanel extends JPanel {
                     String surname = surnameField.getText();
                     String programming = programmingGroup.getSelection().getActionCommand();
                     BottomPanelEvent bpe = new BottomPanelEvent(this, name, surname, programming);
+                    System.out.println(bpe.getName());// delet
                     bottomPanelListener.bottomPanelEventOccurred(bpe);
                     resetForm();
                 }
