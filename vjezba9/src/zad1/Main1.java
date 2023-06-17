@@ -23,7 +23,6 @@ public class Main1 {
         System.out.println("\n");
         ObjectsHandling.listAllData4File(gunsCSV);
         reconstGuns = ObjectsHandling.recreateObj4TxtFile(gunsCSV);
-        // List all reconstructed objects
         System.out.println("************ Reconstruction from csv file -> all objects **************");
         checkReadContent(reconstGuns);
     }
@@ -31,9 +30,8 @@ public class Main1 {
     private static <E> void checkReadContent(List<E> lst) {
         lst.forEach(T -> {
             System.out.println("\n");
-            System.out.println(T.hashCode()); // added for the sake of objects distinctions
+            System.out.println(T.hashCode());
             System.out.println(T.toString());
-
         });
     }
 }

@@ -1,0 +1,17 @@
+﻿Student,Bodovi,Aktivnost,Radovi,Redovit upis,Napomena
+student_1,88,4,1,TRUE,prvo mjesto
+student_2,82,2,2,FALSE,drugo mjesto
+student_3,78,2,1,TRUE,prvo mjesto
+student_4,77,4,0,TRUE,treće mjesto
+student_1,76,1,1,FALSE,četvrto mjesto
+student_1,85,1,0,FALSE,prvo mjesto
+student_2,78,5,2,FALSE,drugo mjesto
+student_4,99,4,3,FALSE,drugo mjesto
+student_3,95,5,0,FALSE,prvo mjesto
+student_3,100,0,3,TRUE,četvrto mjesto
+student_2,77,4,2,FALSE,treće mjesto
+student_2,84,4,0,TRUE,prvo mjesto
+student_1,93,2,2,FALSE,drugo mjesto
+student_4,76,2,0,TRUE,treće mjesto
+student_3,96,3,1,FALSE,prvo mjesto
+student_4,99,2,2,FALSE,četvrto mjesto

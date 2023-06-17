@@ -1,0 +1,1 @@
+[SpaceScientist{name='John', id=0, specialization='null', equipment=null, spec=null}, SpaceScientist{name='Jane', id=10, specialization='Biologist', equipment=[Portable computer, Gas-mask, Scanner], spec=Species{species='Wookie'}}]
